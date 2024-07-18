@@ -163,6 +163,29 @@ void mostrarCandidatos() {
     }
 }
 
+// permite registrar un voto para un candidato
+void registrarVoto() {
+    mostrarCandidatos();
+    int indice;
+    gotoxy(10, 9 + numCandidatos + 1);
+    setColor(11);
+    cout << "Ingrese el indice del candidato: ";
+    setColor(14);
+    cin >> indice;
+    
+    if (indice >= 0 && indice < numCandidatos) {
+        votos[indice]++;
+        setColor(11);
+        gotoxy(10, 11 + numCandidatos + 1);
+        cout << "Voto registrado exitosamente!" << endl;
+    } else {
+        setColor(12);
+        gotoxy(10, 11 + numCandidatos + 1);
+        cerr << "Indice de candidato invalido." << endl;
+    }
+}
+
+
 
 int main(int argc, char** argv) {
 	// funcionalidad del menu

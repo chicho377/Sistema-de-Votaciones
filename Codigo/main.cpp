@@ -100,5 +100,45 @@ void mostrarMenu() {
 }
 
 int main(int argc, char** argv) {
-	return 0;
+	// funcionalidad del menu
+	 int opcion;
+
+    do {
+        limpiarPantalla();
+        mostrarMenu();
+        gotoxy(10, 15);
+        setColor(14);
+        cout << "Seleccione una opcion: ";
+        cin >> opcion;
+
+        switch (opcion) {
+            case 1:
+                agregarCandidato();
+                break;
+            case 2:
+                registrarVoto();
+                break;
+            case 3:
+                mostrarResultados();
+                break;
+            case 4:
+                gotoxy(10, 17);
+                setColor(12);
+                cout << "Saliendo del sistema.\n";
+                break;
+            default:
+                gotoxy(10, 17);
+                setColor(12);
+                cout << "Opcion invalida. Intente nuevamente.\n";
+        }
+
+        if (opcion != 4) {
+            gotoxy(10, 19);
+            setColor(15);
+            system("pause");
+        }
+
+    } while (opcion != 4);
+
+    return 0;
 }

@@ -27,11 +27,15 @@ void gotoxy(int x, int y);
 void setColor(int color);
 void dibujarCuadrado(int x1, int y1, int x2, int y2);
 void limpiarPantalla();
-void showMenu();
+void mostrarMenu();
 void agregarCandidato();
 void registrarVoto();
 void mostrarResultados();
 void mostrarCandidatos();
+
+/* funciones
+
+ funciones de utilidad*/
 
 // mueve el cursor a la posicion (x, y) en la consola
 void gotoxy(int x, int y) {
@@ -73,6 +77,26 @@ void dibujarCuadrado(int x1, int y1, int x2, int y2) {
 // limpia la pantalla de la consola
 void limpiarPantalla() {
     system("cls");
+}
+
+// funciones principales
+
+// muestra el menu principal
+void mostrarMenu() {
+    setColor(11);
+    dibujarCuadrado(5, 5, 50, 20);
+    gotoxy(12, 7);
+    cout << "Menu Principal";
+    setColor(10);
+    gotoxy(10, 9);
+    cout << "1. Ingresar Candidatos";
+    gotoxy(10, 11);
+    cout << "2. Votar";
+    gotoxy(10, 13);
+    cout << "3. Mostrar Resultados";
+    setColor(12);
+    gotoxy(10, 15);
+    cout << "4. Salir";
 }
 
 int main(int argc, char** argv) {

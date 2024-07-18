@@ -99,6 +99,57 @@ void mostrarMenu() {
     cout << "4. Salir";
 }
 
+// permite agregar un candidato a la lista
+void agregarCandidato() {
+	// verificacion de cantidad maxima
+    if (numCandidatos >= MAX_CANDIDATOS) {
+        cerr << "No se pueden agregar mas candidatos." << endl;
+        return;
+    }
+    
+    limpiarPantalla();
+    setColor(11);
+    dibujarCuadrado(5, 5, 70, 22);
+    gotoxy(10, 7);
+    cout << "Ingreso de Candidatos";
+    
+    setColor(10);
+    gotoxy(10, 9);
+    cout << "Nombre: ";
+    cin.ignore();
+    getline(cin, candidatos[numCandidatos].nombre);
+    
+    gotoxy(10, 11);
+    cout << "Partido: ";
+    getline(cin, candidatos[numCandidatos].partido);
+    
+    gotoxy(10, 13);
+    cout << "Plataforma: ";
+    getline(cin, candidatos[numCandidatos].plataforma);
+    
+    setColor(14);
+    gotoxy(10, 15);
+    cout << "Domicilio: ";
+    getline(cin, candidatos[numCandidatos].domicilio);
+    
+    gotoxy(10, 17);
+    cout << "Fecha de Nacimiento (DD/MM/AAAA): ";
+    getline(cin, candidatos[numCandidatos].fechaNacimiento);
+    
+    setColor(15);
+    gotoxy(10, 19);
+    cout << "Correo Electronico: ";
+    getline(cin, candidatos[numCandidatos].correoElectronico);
+    
+    votos[numCandidatos] = 0;
+    numCandidatos++;
+
+    setColor(11);
+    gotoxy(10, 21);
+    cout << "Candidato agregado exitosamente!" << endl;
+}
+
+
 int main(int argc, char** argv) {
 	// funcionalidad del menu
 	 int opcion;

@@ -185,7 +185,40 @@ void registrarVoto() {
     }
 }
 
+// muestra los resultados de las votaciones
+void mostrarResultados() {
+    int totalVotos = 0;
+    for (int i = 0; i < numCandidatos; i++) {
+        totalVotos += votos[i];
+    }
 
+    int maxVotos = 0;
+    int ganador = -1;
+    for (int i = 0; i < numCandidatos; i++) {
+        if (votos[i] > maxVotos) {
+            maxVotos = votos[i];
+            ganador = i;
+        }
+    }
+
+    limpiarPantalla();
+    setColor(11);
+    dibujarCuadrado(5, 5, 70, 20);
+    setColor(10);
+    if (ganador != -1) {
+        gotoxy(10, 7);
+        cout << "El ganador es: " << candidatos[ganador].nombre << " con " << maxVotos << " votos." << endl;
+    }
+
+    for (int i = 0; i < numCandidatos; i++) {
+        double porcentaje = (totalVotos > 0) ? (static_cast<double>(votos[i]) / totalVotos) * 100 : 0;
+        setColor(14);
+        gotoxy(10, 9 + i);
+        cout << "Candidato: " << candidatos[i].nombre 
+             << ", Votos: " << votos[i] 
+             << ", Porcentaje: " << fixed << setprecision(2) << porcentaje << "%" << endl;
+    }
+}
 
 int main(int argc, char** argv) {
 	// funcionalidad del menu
@@ -194,7 +227,7 @@ int main(int argc, char** argv) {
     do {
         limpiarPantalla();
         mostrarMenu();
-        gotoxy(10, 15);
+        gotoxy(10, 17);
         setColor(14);
         cout << "Seleccione una opcion: ";
         cin >> opcion;

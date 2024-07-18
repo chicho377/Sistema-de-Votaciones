@@ -149,6 +149,20 @@ void agregarCandidato() {
     cout << "Candidato agregado exitosamente!" << endl;
 }
 
+// muestra la lista de candidatos
+void mostrarCandidatos() {
+    limpiarPantalla();
+    setColor(11);
+    dibujarCuadrado(5, 5, 70, 15 + numCandidatos);
+    gotoxy(10, 7);
+    cout << "Lista de Candidatos:";
+    for (int i = 0; i < numCandidatos; i++) {
+        setColor(10);
+        gotoxy(10, 9 + i);
+        cout << i << ". " << candidatos[i].nombre << " (" << candidatos[i].partido << ")";
+    }
+}
+
 
 int main(int argc, char** argv) {
 	// funcionalidad del menu

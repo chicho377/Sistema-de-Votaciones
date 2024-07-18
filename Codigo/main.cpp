@@ -33,6 +33,20 @@ void registrarVoto();
 void mostrarResultados();
 void mostrarCandidatos();
 
+// mueve el cursor a la posicion (x, y) en la consola
+void gotoxy(int x, int y) {
+    COORD coord;
+    coord.X = x;
+    coord.Y = y;
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+}
+
+// cambia el color del texto en la consola
+void setColor(int color) {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color);
+}
+
+
 int main(int argc, char** argv) {
 	return 0;
 }

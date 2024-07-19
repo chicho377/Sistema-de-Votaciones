@@ -122,7 +122,7 @@ void mostrarError(const string& mensaje) {
 
 // permite agregar un candidato a la lista
 void agregarCandidato() {
-	// verificacion de cantidad maxima
+    // verificacion de cantidad maxima
     if (numCandidatos >= MAX_CANDIDATOS) {
         cerr << "No se pueden agregar mas candidatos." << endl;
         return;
@@ -134,34 +134,81 @@ void agregarCandidato() {
     gotoxy(10, 7);
     cout << "Ingreso de Candidatos";
     
-    setColor(10);
-    gotoxy(10, 9);
-    cout << "Nombre: ";
-    cin.ignore();
-    getline(cin, candidatos[numCandidatos].nombre);
-    
-    gotoxy(10, 11);
-    cout << "Partido: ";
-    getline(cin, candidatos[numCandidatos].partido);
-    
-    gotoxy(10, 13);
-    cout << "Plataforma: ";
-    getline(cin, candidatos[numCandidatos].plataforma);
-    
-    setColor(14);
-    gotoxy(10, 15);
-    cout << "Domicilio: ";
-    getline(cin, candidatos[numCandidatos].domicilio);
-    
-    gotoxy(10, 17);
-    cout << "Fecha de Nacimiento (DD/MM/AAAA): ";
-    getline(cin, candidatos[numCandidatos].fechaNacimiento);
-    
-    setColor(15);
-    gotoxy(10, 19);
-    cout << "Correo Electronico: ";
-    getline(cin, candidatos[numCandidatos].correoElectronico);
-    
+    // variables para capturar entradas
+    string input;
+
+    // validacion y captura del nombre
+    do {
+        setColor(10);
+        gotoxy(10, 9);
+        cout << "Nombre: ";
+        getline(cin, input);
+        if (input.empty()) {
+            mostrarError("El nombre no puede estar vacio.");
+        }
+    } while (input.empty());
+    candidatos[numCandidatos].nombre = input;
+
+    // validacion y captura del partido
+    do {
+        setColor(10);
+        gotoxy(10, 11);
+        cout << "Partido: ";
+        getline(cin, input);
+        if (input.empty()) {
+            mostrarError("El partido no puede estar vacio.");
+        }
+    } while (input.empty());
+    candidatos[numCandidatos].partido = input;
+
+    // validacion y captura de la plataforma
+    do {
+        setColor(10);
+        gotoxy(10, 13);
+        cout << "Plataforma: ";
+        getline(cin, input);
+        if (input.empty()) {
+            mostrarError("La plataforma no puede estar vacia.");
+        }
+    } while (input.empty());
+    candidatos[numCandidatos].plataforma = input;
+
+    // validacion y captura del domicilio
+    do {
+        setColor(10);
+        gotoxy(10, 15);
+        cout << "Domicilio: ";
+        getline(cin, input);
+        if (input.empty()) {
+            mostrarError("El domicilio no puede estar vacio.");
+        }
+    } while (input.empty());
+    candidatos[numCandidatos].domicilio = input;
+
+    // validacion y captura de la fecha de nacimiento
+    do {
+        setColor(10);
+        gotoxy(10, 17);
+        cout << "Fecha de Nacimiento (DD/MM/AAAA): ";
+        getline(cin, input);
+        if (input.empty()) {
+            mostrarError("La fecha de nacimiento no puede estar vacia.");
+        }
+    } while (input.empty());
+    candidatos[numCandidatos].fechaNacimiento = input;
+
+    // validacion y captura del correo electronico
+    do {
+        setColor(10);
+        gotoxy(10, 19);
+        cout << "Correo Electronico: ";
+        getline(cin, input);
+        if (input.empty()) {
+            mostrarError("El correo electronico no puede estar vacio.");
+        }
+    } while (input.empty());
+    candidatos[numCandidatos].correoElectronico = input;
+
     votos[numCandidatos] = 0;
     numCandidatos++;
 

@@ -12,6 +12,7 @@ using namespace std;
 const int MAX_CANDIDATOS = 100; // numero maximo de candidatos
 const int MAX_VOTANTES = 100; // numero maximo de votantes
 
+// estructura candidatos
 struct Candidato {
     string nombre;
     string partido;
@@ -21,6 +22,7 @@ struct Candidato {
     string correoElectronico;
 };
 
+// estructura votantes
 struct Votante {
     string cedula;
     string nombre;
@@ -45,11 +47,11 @@ void mostrarError();
 void agregarCandidato();
 void registrarVoto();
 void mostrarCandidatos();
+void mostrarResultados();
+void mostrarRegistroVotantes();
 bool cedulaRegistrada(const string& cedula);
 string to_string(int number);
 string obtenerFechaActual();
-void mostrarResultados();
-void mostrarRegistroVotantes();
 
 /* funciones
 

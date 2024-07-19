@@ -45,6 +45,7 @@ void mostrarResultados();
 void mostrarCandidatos();
 bool cedulaRegistrada(const string& cedula);
 string to_string(int number);
+string obtenerFechaActual();
 
 /* funciones
 
@@ -248,6 +249,20 @@ string to_string(int number) {
     stringstream ss;
     ss << number;
     return ss.str();
+}
+
+// obtiene la fecha actual en formato DD/MM/AAAA
+string obtenerFechaActual() {
+    time_t now = time(0);
+    tm* ltm = localtime(&now);
+    string day = to_string(ltm->tm_mday);
+    string month = to_string(1 + ltm->tm_mon);
+    string year = to_string(1900 + ltm->tm_year);
+    
+    if (day.length() < 2) day = "0" + day;
+    if (month.length() < 2) month = "0" + month;
+
+    return day + "/" + month + "/" + year;
 }
 
 // permite registrar un voto para un candidato

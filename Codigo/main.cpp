@@ -139,7 +139,7 @@ void agregarCandidato() {
     
     limpiarPantalla();
     setColor(11);
-    dibujarCuadrado(5, 5, 70, 22);
+    dibujarCuadrado(5, 5, 70, 24);
     gotoxy(10, 7);
     cout << "Ingreso de Candidatos";
     
@@ -222,7 +222,7 @@ void agregarCandidato() {
     numCandidatos++;
 
     setColor(11);
-    gotoxy(10, 21);
+    gotoxy(10, 22);
     cout << "Candidato agregado exitosamente!" << endl;
 }
 
@@ -230,7 +230,7 @@ void agregarCandidato() {
 void mostrarCandidatos() {
     limpiarPantalla();
     setColor(11);
-    dibujarCuadrado(5, 5, 70, 15 + numCandidatos);
+    dibujarCuadrado(5, 5, 70, 24 + numCandidatos);
     gotoxy(10, 7);
     cout << "Lista de Candidatos:";
     for (int i = 0; i < numCandidatos; i++) {
@@ -324,7 +324,7 @@ void registrarVoto() {
     
     mostrarCandidatos();
     int indice;
-    gotoxy(10, 15 + numCandidatos);
+    gotoxy(10, 14 + numCandidatos);
     setColor(11);
     cout << "Ingrese el indice del candidato: ";
     setColor(14);
@@ -381,7 +381,7 @@ void mostrarResultados() {
 void mostrarRegistroVotantes() {
     limpiarPantalla();
     setColor(11);
-    dibujarCuadrado(5, 5, 70, 10 + numVotantes);
+    dibujarCuadrado(5, 5, 95, 10 + numVotantes);
     gotoxy(10, 7);
     cout << "Registro de Votantes:";
     for (int i = 0; i < numVotantes; i++) {

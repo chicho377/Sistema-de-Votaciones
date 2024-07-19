@@ -396,7 +396,7 @@ int main(int argc, char** argv) {
     do {
         limpiarPantalla();
         mostrarMenu();
-        gotoxy(10, 17);
+        gotoxy(10, 19);
         setColor(14);
         cout << "Seleccione una opcion: ";
         cin >> opcion;
@@ -412,6 +412,9 @@ int main(int argc, char** argv) {
                 mostrarResultados();
                 break;
             case 4:
+                mostrarRegistroVotantes();
+                break;
+            case 5:
                 gotoxy(10, 17);
                 setColor(12);
                 cout << "Saliendo del sistema.\n";
@@ -422,13 +425,13 @@ int main(int argc, char** argv) {
                 cout << "Opcion invalida. Intente nuevamente.\n";
         }
 
-        if (opcion != 4) {
-            gotoxy(10, 19);
+        if (opcion != 5) {
+            gotoxy(10, 21);
             setColor(15);
             system("pause");
         }
 
-    } while (opcion != 4);
+    } while (opcion != 5);
 
     return 0;
 }

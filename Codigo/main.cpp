@@ -32,6 +32,9 @@ Candidato candidatos[MAX_CANDIDATOS];
 int votos[MAX_CANDIDATOS];
 int numCandidatos = 0;
 
+Votante votantes[MAX_VOTANTES];
+int numVotantes = 0;
+
 // prototipos de funciones
 void gotoxy(int x, int y);
 void setColor(int color);

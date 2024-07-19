@@ -2,12 +2,15 @@
 #include <string>
 #include <iomanip>
 #include <windows.h>
+#include <ctime>
+#include <sstream>
 
 using namespace std;
 
 // variables globales
 
-const int MAX_CANDIDATOS = 100; // Numero maximo de candidatos
+const int MAX_CANDIDATOS = 100; // numero maximo de candidatos
+const int MAX_VOTANTES = 100; // numero maximo de votantes
 
 struct Candidato {
     string nombre;
@@ -16,6 +19,13 @@ struct Candidato {
     string domicilio;
     string fechaNacimiento;
     string correoElectronico;
+};
+
+struct Votante {
+    string cedula;
+    string nombre;
+    string domicilio;
+    string fechaVoto;
 };
 
 Candidato candidatos[MAX_CANDIDATOS];
@@ -28,6 +38,7 @@ void setColor(int color);
 void dibujarCuadrado(int x1, int y1, int x2, int y2);
 void limpiarPantalla();
 void mostrarMenu();
+void mostrarError();
 void agregarCandidato();
 void registrarVoto();
 void mostrarResultados();
@@ -84,7 +95,7 @@ void limpiarPantalla() {
 // muestra el menu principal
 void mostrarMenu() {
     setColor(11);
-    dibujarCuadrado(5, 5, 50, 20);
+    dibujarCuadrado(5, 5, 50, 22);
     gotoxy(12, 7);
     cout << "Menu Principal";
     setColor(10);
@@ -94,9 +105,11 @@ void mostrarMenu() {
     cout << "2. Votar";
     gotoxy(10, 13);
     cout << "3. Mostrar Resultados";
-    setColor(12);
     gotoxy(10, 15);
-    cout << "4. Salir";
+    cout << "4. Ver Registro de Votantes";
+    setColor(12);
+    gotoxy(10, 17);
+    cout << "5. Salir";
 }
 
 // permite agregar un candidato a la lista

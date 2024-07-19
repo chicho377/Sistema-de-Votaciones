@@ -43,6 +43,7 @@ void agregarCandidato();
 void registrarVoto();
 void mostrarResultados();
 void mostrarCandidatos();
+bool cedulaRegistrada(const string& cedula);
 
 /* funciones
 
@@ -229,6 +230,16 @@ void mostrarCandidatos() {
         gotoxy(10, 9 + i);
         cout << i << ". " << candidatos[i].nombre << " (" << candidatos[i].partido << ")";
     }
+}
+
+// verifica si una cedula ya esta registrada
+bool cedulaRegistrada(const string& cedula) {
+    for (int i = 0; i < numVotantes; i++) {
+        if (votantes[i].cedula == cedula) {
+            return true;
+        }
+    }
+    return false;
 }
 
 // permite registrar un voto para un candidato

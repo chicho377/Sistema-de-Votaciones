@@ -44,6 +44,7 @@ void registrarVoto();
 void mostrarResultados();
 void mostrarCandidatos();
 bool cedulaRegistrada(const string& cedula);
+string to_string(int number);
 
 /* funciones
 
@@ -240,6 +241,13 @@ bool cedulaRegistrada(const string& cedula) {
         }
     }
     return false;
+}
+
+// convierte un entero a una cadena
+string to_string(int number) {
+    stringstream ss;
+    ss << number;
+    return ss.str();
 }
 
 // permite registrar un voto para un candidato

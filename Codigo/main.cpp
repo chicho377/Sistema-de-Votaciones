@@ -41,11 +41,12 @@ void mostrarMenu();
 void mostrarError();
 void agregarCandidato();
 void registrarVoto();
-void mostrarResultados();
 void mostrarCandidatos();
 bool cedulaRegistrada(const string& cedula);
 string to_string(int number);
 string obtenerFechaActual();
+void mostrarResultados();
+void mostrarRegistroVotantes();
 
 /* funciones
 
@@ -368,6 +369,23 @@ void mostrarResultados() {
         cout << "Candidato: " << candidatos[i].nombre 
              << ", Votos: " << votos[i] 
              << ", Porcentaje: " << fixed << setprecision(2) << porcentaje << "%" << endl;
+    }
+}
+
+// muestra el registro de votantes con sus respectivos datos
+void mostrarRegistroVotantes() {
+    limpiarPantalla();
+    setColor(11);
+    dibujarCuadrado(5, 5, 70, 10 + numVotantes);
+    gotoxy(10, 7);
+    cout << "Registro de Votantes:";
+    for (int i = 0; i < numVotantes; i++) {
+        setColor(10);
+        gotoxy(10, 9 + i);
+        cout << "Cedula: " << votantes[i].cedula 
+             << ", Nombre: " << votantes[i].nombre 
+             << ", Domicilio: " << votantes[i].domicilio 
+             << ", Fecha de Voto: " << votantes[i].fechaVoto << endl;
     }
 }
 

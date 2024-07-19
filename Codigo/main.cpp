@@ -112,6 +112,14 @@ void mostrarMenu() {
     cout << "5. Salir";
 }
 
+// permite mostrar mensaje de error personalizado
+void mostrarError(const string& mensaje) {
+    setColor(12); // Color rojo para el mensaje de error
+    gotoxy(10, 23); // Ajusta segun el diseno
+    cout << mensaje;
+    setColor(15); // Restaurar color normal
+}
+
 // permite agregar un candidato a la lista
 void agregarCandidato() {
 	// verificacion de cantidad maxima

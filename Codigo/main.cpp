@@ -267,9 +267,58 @@ string obtenerFechaActual() {
 
 // permite registrar un voto para un candidato
 void registrarVoto() {
+    limpiarPantalla();
+    setColor(11);
+    dibujarCuadrado(5, 5, 70, 25);
+    
+    Votante votante;
+    gotoxy(10, 7);
+    cout << "Ingrese sus datos para votar";
+    
+    // Validacion y captura de la cedula
+    do {
+        setColor(10);
+        gotoxy(10, 9);
+        cout << "Cedula: ";
+        cin.ignore();
+        getline(cin, votante.cedula);
+        if (votante.cedula.empty()) {
+            mostrarError("La cedula no puede estar vacia.");
+        }
+    } while (votante.cedula.empty());
+
+    if (cedulaRegistrada(votante.cedula)) {
+        mostrarError("Error: Este votante ya ha votado.");
+        return;
+    }
+    
+    // Validacion y captura del nombre
+    do {
+        setColor(10);
+        gotoxy(10, 11);
+        cout << "Nombre: ";
+        getline(cin, votante.nombre);
+        if (votante.nombre.empty()) {
+            mostrarError("El nombre no puede estar vacio.");
+        }
+    } while (votante.nombre.empty());
+
+    // Validacion y captura del domicilio
+    do {
+        setColor(10);
+        gotoxy(10, 13);
+        cout << "Domicilio: ";
+        getline(cin, votante.domicilio);
+        if (votante.domicilio.empty()) {
+            mostrarError("El domicilio no puede estar vacio.");
+        }
+    } while (votante.domicilio.empty());
+
+    votante.fechaVoto = obtenerFechaActual();
+    
     mostrarCandidatos();
     int indice;
-    gotoxy(10, 9 + numCandidatos + 1);
+    gotoxy(10, 15 + numCandidatos);
     setColor(11);
     cout << "Ingrese el indice del candidato: ";
     setColor(14);
@@ -277,13 +326,13 @@ void registrarVoto() {
     
     if (indice >= 0 && indice < numCandidatos) {
         votos[indice]++;
+        votantes[numVotantes] = votante;
+        numVotantes++;
         setColor(11);
-        gotoxy(10, 11 + numCandidatos + 1);
+        gotoxy(10, 17 + numCandidatos);
         cout << "Voto registrado exitosamente!" << endl;
     } else {
-        setColor(12);
-        gotoxy(10, 11 + numCandidatos + 1);
-        cerr << "Indice de candidato invalido." << endl;
+        mostrarError("Indice de candidato invalido.");
     }
 }
 

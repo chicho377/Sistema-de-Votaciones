@@ -1,4 +1,4 @@
-```markdown
+
 # 🗳️ Sistema de Votaciones Electrónico
 
 ¡Bienvenido al Sistema de Votaciones Electrónico! Este proyecto, desarrollado en C++, permite la gestión de candidatos y votantes, así como el registro y conteo de votos de manera electrónica.
@@ -26,5 +26,5 @@ Puedes encontrar la documentación completa en el siguiente enlace:
 
 ---
 
-Desarrollado con ❤️ por [Fabricio Mora](https://github.com/chicho377)
-```
+Desarrollado con ❤️ por [Fabricio Mora](https://github.com/chicho377).
+

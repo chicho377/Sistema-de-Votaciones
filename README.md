@@ -1,5 +1,3 @@
-¡Claro, Fabricio! Aquí tienes un README.md para tu proyecto de sistema de votaciones electrónico en C++. He añadido algunos emojis para hacerlo más llamativo.
-
 ```markdown
 # 🗳️ Sistema de Votaciones Electrónico
 

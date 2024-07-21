@@ -26,5 +26,5 @@ Puedes encontrar la documentación completa en el siguiente enlace:
 
 ---
 
-Desarrollado con ❤️ por [Fabricio Mora](https://github.com/chicho377).
+Desarrollado por [Fabricio Mora](https://github.com/chicho377).
 

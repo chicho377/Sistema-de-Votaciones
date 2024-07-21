@@ -21,7 +21,7 @@
 
 Puedes encontrar la documentación completa en el siguiente enlace:
 
-📁 [Documentación](Documentos/Documentacion.pdf)
+📁 [Documentación](./Documentos/Documentacion.pdf)
 
 
 ---
